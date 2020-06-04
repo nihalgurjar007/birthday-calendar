@@ -1,0 +1,59 @@
+.header{
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-view{
+  display: flex;
+  justify-content: space-around;
+  padding:2em;
+}
+
+.calendar-card{
+  width: 300px;
+  border: 1px solid lightblue;
+  margin: 18px;
+}
+.card-header{
+  padding: 8px;
+  background: lightskyblue;
+  text-align: right;
+}
+.card-area{
+  display: flex;
+  justify-content: space-evenly;
+  height: 200px;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+.card-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: lightblue;
+  padding: 6px;
+  flex-grow: 1;
+  border:1px solid white;
+  min-width: 17%;
+}
+.worspace-area{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.json-box{
+  height: 293px;
+    width: 611px;
+}
+.card-item:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.year-update{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100px;
+}
