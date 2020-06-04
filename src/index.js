@@ -20,7 +20,18 @@
     document.getElementById("update-btn").addEventListener("click", function () {
       let value = document.getElementById("text-area").value
       let selectedYear = document.getElementById("year-value").value
-      let jsonData = JSON.parse(value)
+      if (!value || !selectedYear) {
+        alert("Json and Year are required fields");
+        return;
+      }
+      let jsonData = {}
+      try {
+        jsonData = JSON.parse(value)
+      }
+      catch (err) {
+        alert("Please enter valid json");
+        return;
+      };
       showBirthdays(jsonData, selectedYear);
     })
   }
@@ -41,7 +52,6 @@
   }
 
   function showBirthdays(data, selectedYear) {
-   
     Object.keys(weekList).forEach((item) => weekList[item] = [])
     for (let i = 0; i < data.length; i++){
       let day = getDayFromDate(data[i].birthday);
@@ -55,7 +65,6 @@
     Object.keys(weekList).forEach((key) => {
       renderBirthdays(weekList[key], key);
     })
-    
   }
 
   function renderBirthdays(data, id) {
