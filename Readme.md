@@ -2,6 +2,11 @@
 
 Weekwise birthday calendar in HTML,CSS and Vanilla JS. 
 
+## To run 
+ 
+ Go to src/ folder and 
+ Run the index.html file in the browser.
+
 ## Sample Json
 
 The sample json looks like this

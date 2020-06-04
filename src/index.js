@@ -14,7 +14,7 @@
         </div>
       `)
     }).join('');
-    console.log(weekCards)
+
     document.getElementById("calendar-view").innerHTML = weekCards;
 
     document.getElementById("update-btn").addEventListener("click", function () {
@@ -41,7 +41,7 @@
   }
 
   function showBirthdays(data, selectedYear) {
-    console.log(data, parseInt(selectedYear))
+   
     Object.keys(weekList).forEach((item) => weekList[item] = [])
     for (let i = 0; i < data.length; i++){
       let day = getDayFromDate(data[i].birthday);
@@ -52,7 +52,6 @@
         weekList[day].push(data[i]);
       }
     }
-    console.log(weekList)
     Object.keys(weekList).forEach((key) => {
       renderBirthdays(weekList[key], key);
     })
@@ -67,7 +66,6 @@
         </div>
       `);
     }).join('');
-    console.log(birthdayList)
     document.getElementById(`card-area-${id}`).innerHTML = birthdayList;
   }
 
@@ -83,7 +81,6 @@
   
   function getYearFromDate(date) {
     var d = new Date(date);
-    console.log(d,d.getFullYear())
     return d.getFullYear();
   }
   init();
