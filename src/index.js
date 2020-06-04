@@ -1,3 +1,4 @@
+
 (function () {
 
   let weekList = { 'mon': [], 'tue': [], 'wed': [], 'thu': [], 'fri': [], 'sat': [], 'sun': [] };
@@ -54,8 +55,8 @@
   function showBirthdays(data, selectedYear) {
     Object.keys(weekList).forEach((item) => weekList[item] = [])
     for (let i = 0; i < data.length; i++){
-      let day = getDayFromDate(data[i].birthday);
-      if (getYearFromDate(data[i].birthday) === parseInt(selectedYear)) {
+      let day = Utils.getDayFromDate(data[i].birthday);
+      if (Utils.getYearFromDate(data[i].birthday) === parseInt(selectedYear)) {
         if (!weekList[day]) {
           weekList[day] = [];
         }
@@ -71,27 +72,13 @@
     let birthdayList = data.map((item, index) => {
       return (`
         <div class="card-item" style="background:${getBgFromIndex(index)}">
-          ${getInitials(item.name)}
+          ${Utils.getInitials(item.name)}
         </div>
       `);
     }).join('');
     document.getElementById(`card-area-${id}`).innerHTML = birthdayList;
   }
 
-  function getInitials(text) {
-    return text.split(' ').map(item => item.charAt(0).toUpperCase()).join('');
-  }
-
-  function getDayFromDate(date) {
-    var d = new Date(date);
-    var options = { weekday: 'short'};
-    return new Intl.DateTimeFormat('en-US', options).format(d).toLowerCase();
-  }
-  
-  function getYearFromDate(date) {
-    var d = new Date(date);
-    return d.getFullYear();
-  }
   init();
 })();
 
