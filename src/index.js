@@ -69,13 +69,19 @@
   }
 
   function renderBirthdays(data, id) {
-    let birthdayList = data.map((item, index) => {
-      return (`
-        <div class="card-item" style="background:${getBgFromIndex(index)}">
-          ${Utils.getInitials(item.name)}
-        </div>
-      `);
-    }).join('');
+    let birthdayList;
+    if (data.length > 0) {
+      birthdayList = data.map((item, index) => {
+        return (`
+          <div class="card-item" style="background:${getBgFromIndex(index)}">
+            ${Utils.getInitials(item.name)}
+          </div>
+        `);
+      }).join('');
+    }
+    else {
+      birthdayList = `<div class="card-item" style="background:lightgray">No Birthdays</div>`
+    }
     document.getElementById(`card-area-${id}`).innerHTML = birthdayList;
   }
 
