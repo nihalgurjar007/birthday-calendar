@@ -55,13 +55,11 @@
   function showBirthdays(data, selectedYear) {
     Object.keys(weekList).forEach((item) => weekList[item] = [])
     for (let i = 0; i < data.length; i++){
-      let day = Utils.getDayFromDate(data[i].birthday);
-      if (Utils.getYearFromDate(data[i].birthday) === parseInt(selectedYear)) {
-        if (!weekList[day]) {
-          weekList[day] = [];
-        }
-        weekList[day].push(data[i]);
+      let day = Utils.getBirthDayFromDate(data[i].birthday, selectedYear);
+      if (!weekList[day]) {
+        weekList[day] = [];
       }
+      weekList[day].push(data[i]);
     }
     Object.keys(weekList).forEach((key) => {
       renderBirthdays(weekList[key], key);

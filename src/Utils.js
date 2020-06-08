@@ -10,14 +10,17 @@ let Utils = (function () {
     return new Intl.DateTimeFormat('en-US', options).format(d).toLowerCase();
   }
 
-  function getYearFromDate(date) {
-    var d = new Date(date);
-    return d.getFullYear();
+  function getBirthDayFromDate(date, selectedYear) {
+    let d = new Date(date);
+    let month = d.getMonth();
+    let day = d.getDate();
+    let c = new Date(selectedYear, month, day);
+    return getDayFromDate(c)
   }
 
   return {
     getInitials,
     getDayFromDate,
-    getYearFromDate
+    getBirthDayFromDate
   }
 }) ();
